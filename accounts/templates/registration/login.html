@@ -5,7 +5,8 @@
 {% block body %}
     <div class="login">
         {% if form.errors %}
-            <p>Your username and password didn't match. Please try again.</p>
+            <!--<p style="color:Yellow;"> Your username and password didn't match. Please try again.</p> -->
+            <p style="color:Yellow;"> <strong> Your username and password didn't match. Please try again</strong></p>
             {% endif %}
 
             {% if next %}
@@ -16,12 +17,15 @@
                 <p>Please login to see this page.</p>
                 {% endif %}
             {% endif %}
-            <img class="logo" src="https://dummyimage.com/200x200/000000/fff?text=logo goes here"/>
+          <!---  <img class="logo" src="https://dummyimage.com/200x200/000000/fff?text=logo goes here"/> -->
             <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
+
+               <p style="color:violet;"> <strong> Username </strong> </p>
                 <div class="form-group">
                   <td>{{ form.username }}</td>
                 </div>
+              <p style="color:violet;"> <strong> Password </strong> </p>
                 <div class="form-group">
                   <td>{{ form.password }}</td>
                 </div>
@@ -34,9 +38,9 @@
 
             <br>
             <p><strong>-- OR --</strong></p>
-            <p><a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a></p>
+           <!---  <p><a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a></p>
 
-            <p><a href="{% url 'password_reset' %}">Forget Password?</a></p>
-            <p>Don't have an account? <a href="{% url 'password_reset' %}">Register here.</a></p>
+           <p><a href="{% url 'password_reset' %}">Forget Password?</a></p> -->
+            <p style="color:violet;"> <strong> Don't have an account? </strong> <a href="{% url 'register' %}">Register here.</a></p>
     </div>
 {% endblock %}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Expense Tracker</title>
-    {% load staticfiles %}
+    {% load static %}
     {% load bootstrap3 %}
 
     <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -52,7 +52,7 @@
                      <li><a href="{% url 'profile'%}">{{ user.get_username }}</a></li>
                      <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
                 {% else %}
-                     <li><a href="{% url 'login'%}?next={{request.path}}">Register</a></li>
+                     <li><a href="{% url 'register'%}">Register</a></li>
                      <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
                 {% endif %}
             </ul>
